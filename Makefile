@@ -99,10 +99,13 @@ connect-debug: run-ensure
 # S'assegura de tenir el contenidor engegat
 launch: run-ensure /usr/bin/xpra
 	sleep 3
-	xpra start ssh:developer@$(shell make -s $(OPTS) getip) --daemon=no --ssh="ssh -o 'StrictHostKeyChecking=no' -o 'ControlMaster=no' -i $(ID_RSA)" --start='apt install python3 python3-opengl python3-numpy; /opt/Ubiquiti/AirControl2/airControl2Client'
+	xpra start ssh:developer@$(shell make -s $(OPTS) getip) --daemon=no --ssh="ssh -o 'StrictHostKeyChecking=no' -o 'ControlMaster=no' -i $(ID_RSA)" --start='/opt/Ubiquiti/AirControl2/airControl2Client'
 
 
 #launch: run-ensure /usr/bin/xpra
 #	sleep 3
 #	xpra start ssh:developer@$(shell make -s $(OPTS) getip) --daemon=no --ssh="ssh -o 'StrictHostKeyChecking=no' -i $(ID_RSA)" --start=YOUR_FANCY_APP
 
+.PHONY : all
+.DEFAULT_GOAL := all
+all: build launch
