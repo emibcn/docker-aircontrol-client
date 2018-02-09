@@ -1,5 +1,5 @@
 # docker-aircontrol-client
-Docker solution for AirControl2 client GUI. Helps creating various containers for different AirControl2 servers.
+Docker solution for AirControl2 client GUI. Helps creating various containers for different AirControl2 servers. "Only" 842MB...
 
 ## Usage
 Download repo:
