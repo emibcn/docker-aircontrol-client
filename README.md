@@ -20,9 +20,9 @@ Open your new AirControl profile:
 
 More and well commented options inside Makefile (some in Catalan; I'll soon translate it).
 
-**NOTE:** it uses host's `xpra` application to connect to container and open the AC2 client app. You must have it installed to make it work:
+**NOTE:** this solution uses host's `xpra` and `make` applications to connect to container and open the AC2 client app. You must have it installed to make it work. For Debian/Ubuntu:
 ```
-apt install xpra
+sudo apt install xpra build-essential
 ```
 
-**Note 2:** By default, uses your default `$HOME/.ssh/id_rsa{,pub}` SSH key file. The public one is inserted into the container and the private one is used to connect passwordless to the container. You can override the keyfiles with make environments. Take a look into Makefile.
+**Note 2:** By default, this solution uses your default `$HOME/.ssh/id_rsa{,pub}` SSH key file. The public one is inserted into the container's `authorized_keys` and the private one is used to connect password-less to the container. You can override the key files with make environments. Take a look into Makefile.
