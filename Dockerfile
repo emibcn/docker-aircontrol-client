@@ -9,7 +9,8 @@ RUN \
    apt-get install -y \
       sudo \
       openssh-server \
-      xpra 
+      xpra \
+      wget \
       iperf \
       traceroute \
       openjdk-8-jre && \

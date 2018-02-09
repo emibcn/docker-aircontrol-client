@@ -13,9 +13,10 @@ Create a new container with customized options:
 make VERSION=latest NAME=mywisp do-exec
 ```
 
-Open your new AirControl profile:
+Build and open your new AirControl profile:
 ```
-./mywisp.sh
+./mywisp.sh build
+./mywisp.sh launch
 ```
 
 More and well commented options inside Makefile (some in Catalan; I'll soon translate it).
