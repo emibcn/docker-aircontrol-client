@@ -11,9 +11,12 @@ RUN apt-get update && \
        openjdk-8-jre && \
     apt-get -y clean autoclean autoremove
 
-COPY aircontrol.bin /tmp/
+ENV URL https://fw-download.ubnt.com/data/airControl/642b-unix64-v2.1.0-rc-e3084447f47948b2ac272974aaad6b91.bin
 
-RUN echo -e '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n\n2\nn' | /tmp/aircontrol.bin
+RUN \
+   wget -O /tmp/aircontrol.bin "$URL" && \
+   chmod +x /tmp/aircontrol.bin && \
+   echo -e '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n\n2\nn' | /tmp/aircontrol.bin
 
 ENV USER developer
 
