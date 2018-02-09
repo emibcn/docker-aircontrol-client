@@ -15,8 +15,7 @@ make VERSION=latest NAME=mywisp do-exec
 
 Build and open your new AirControl profile:
 ```
-./mywisp.sh build
-./mywisp.sh launch
+./mywisp.sh
 ```
 
 More and well commented options inside Makefile (some in Catalan; I'll soon translate it).
