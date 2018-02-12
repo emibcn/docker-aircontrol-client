@@ -4,6 +4,8 @@ IMAGE_NAME = aircontrol-gui
 # You can define NAME and VERSION env vars to create a differently named container
 NAME := $(IMAGE_NAME)
 VERSION := latest
+MKFILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
+
 name:
 	echo $(NAME):$(VERSION)
 
@@ -25,8 +27,10 @@ build: id_rsa.pub data Dockerfile
 OPTS = NAME=$(NAME) VERSION=$(VERSION) ID_RSA=$(ID_RSA) ID_RSA_PUB=$(ID_RSA_PUB)
 $(NAME).sh:
 	echo "#!/bin/bash" > $(NAME).sh
-	echo "make $(OPTS) \"\$${@}\"" >> $(NAME).sh
+	echo "make -C \"$(MKFILE_PATH)\" $(OPTS) \"\$${@}\"" >> $(NAME).sh
 	chmod +x $(NAME).sh
+	mkdir -p $(HOME)/bin
+	ln -s $(PWD)/$(NAME).sh $(HOME)/bin/
 
 do-exec: $(NAME).sh
 
